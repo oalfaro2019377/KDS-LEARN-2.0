@@ -1,0 +1,130 @@
+<app-navbar></app-navbar>
+     <body>    
+        <h1>CURSOS</h1>
+        <p >¡Agrega más cursos!</p>  
+        <img src="../../../assets/img/add (1).png" id='x' width="100rem" height="100rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <!--Cards-->  
+        <div id="cards" class="row" class="container row justify-content-center align-items-center">
+          <div class="card myWidth" *ngFor="let class of classes">
+            <h1 class="stroke" *ngIf="class.name==null">Regresa a la página anterior para crear una publicación nueva.</h1>
+            <img src="assets\img\libro.png" width="150rem" height="80rem" alt=".">  
+            <div  class="card-body">
+              <h5 class="card-title">{{class.name}}</h5>
+              <h6 class="card-title">{{class.description}}</h6>
+            </div> 
+            <form  class="form-signin" #get = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
+              <div>
+                <img src="../../../assets/img/file (1).png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
+                <img src="../../../assets/img/add-file.png"  (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
+                <img src="../../../assets/img/file.png" id='prueba' (click)='getClass(class._id) || funcion()' width="50rem" height="50rem" class="img-responsive" type="button"  alt="verCommentario" >
+              </div>
+              </form>
+          </div>
+        </div> 
+    </body>
+<!--modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content text-center">
+            <div class="modal-header text-white d-flex justify-content-center">
+              <h5 class="modal-title" id="exampleModalLabel">REGISTRATE</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img  src="../../../assets/img/course.png" width="80px" height="80px">
+              <h2>¡Agrega un nuevo curso!</h2>
+              <form  class="form-signin" #createCourse = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre del curso</label>
+                    <span *ngIf="!name.valid && name.touched">
+                      Campo obligatorio
+                    </span>
+                    <input [(ngModel)]="classSelected.name"  name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="Nombre del curso" required>
+                 
+                    <label for="exampleFormControlInput1" class="form-label">Descripción</label>
+                    <span *ngIf="!des.valid && des.touched">
+                      Campo obligatorio
+                    </span>
+                    <input [(ngModel)]="classSelected.description"  name="des" #des="ngModel" class="form-control" type="text" id="inputDes" placeholder="Descripción del curso" required>
+                    
+                    <label>Video Descriptivo</label>
+                    <input [(ngModel)]="classSelected.video" name="video" #video="ngModel" class="form-control" type="text" id="inputVideo" placeholder="Link de tu video descriptivo">
+                    <p>Puedes compartir el link de tu video de Youtube para tu curso</p>
+                  </div>
+                  <div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+                    <button  type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="!createCourse.form.valid">GUARDAR</button >
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer text-white">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal delete-->
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content text-center">
+          <div class="modal-header text-white d-flex justify-content-center">
+            <h5 class="modal-title" id="modalDeleteLabel">Elimina el curso seleccionado</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h5 class="mt-5 mb-3 text-muted">¿Estas seguro de eliminar el curso?</h5>
+            <!---->
+            </div>
+            <div class="modal-body">
+              <i class="fas fa-times fa-3x text" style="color: black;"></i>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="button" class="btn btn"  data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-outline ripple-surface" data-bs-dismiss="modal" style="min-width: 69px;" (click)="deleteCourse()">
+                Sí
+              </button>
+            <!---->
+          </div>
+          <div class="modal-footer text-white">
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--modal publicación-->
+    <div class="modal fade" id="modalpublic" tabindex="-1" aria-labelledby="modalpublicLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content text-center">
+          <div class="modal-header  text-white d-flex justify-content-center">
+            <h5 class="modal-title" id="modalpublicLabel">PUBLICACIÓN</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+            <img  src="../../../assets/img/male-teacher.png" width="100px" height="100px">
+            <h5>Crear nueva publicación</h5>
+            <h5>Nota: Para adjuntar un archivo, es necesario colocar el link de almacenamiento en la nube en los espacios para links</h5>
+            <form>
+              <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+              <input [(ngModel)]="commentSelected.title" name="name" class="form-control" type="text" id="inputName" placeholder="título" required>
+              <label for="exampleFormControlInput2" class="form-label">Comentario</label>
+              <input [(ngModel)]="commentSelected.comm" name="name" class="form-control" type="text" id="inputName" placeholder="..." required>
+              <!--links-->
+              <label for="exampleFormControlInput3" class="form-label">link 1</label>
+              <input [(ngModel)]="commentSelected.link1" name="name" class="form-control" type="text" id="inputName" placeholder="inserta un link" required>
+              <label for="exampleFormControlInput4" class="form-label">link 2</label>
+              <input [(ngModel)]="commentSelected.link2" name="name" class="form-control" type="text" id="inputName" placeholder="inserta un link" required>
+              <label for="exampleFormControlInput5" class="form-label">link 3</label>
+              <input [(ngModel)]="commentSelected.link3" name="name" class="form-control" type="text" id="inputName" placeholder="inserta un link" required>
+              <label for="exampleFormControlInput6" class="form-label">link 4</label>
+              <input [(ngModel)]="commentSelected.link4" name="name" class="form-control" type="text" id="inputName" placeholder="inserta un link" required>
+              <label for="exampleFormControlInput7" class="form-label">link 5</label>
+              <input [(ngModel)]="commentSelected.link5" name="name" class="form-control" type="text" id="inputName" placeholder="inserta un link" required>
+            </form>
+          </div>
+          <div class="modal-footer text-black">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button (click)=' saveComment()' type="button" data-bs-dismiss="modal" class="btn btn-outline-success ripple-surface">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--modal material de apoyo-->
+    

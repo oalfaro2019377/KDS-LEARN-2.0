@@ -1,0 +1,59 @@
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin: auto;
+    padding-left: 10%;
+    padding-bottom: 5%;
+    height: 100%;
+    text-align: center;
+    font-family:"Montserrat";
+}
+
+h1{
+    font-size: 4rem;
+}
+
+.card-body{
+    color: rgb(12, 12, 12);
+    margin: 7%;
+    display: inline-block;  
+    color: rgb(22, 22, 22);
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+#trans{
+    transition: all 0.5s ease;
+}
+
+#trans:hover{
+    transform: scale(0.9);
+    transition: all 0.5s ease;
+}
+
+
+.card-title{
+    color: #7B001E;
+    font-weight: bold;
+}
+
+.texto{
+    color: rgb(14, 14, 13);
+}
+
+  .myWidth{
+    width: 19rem;
+    display: inline-flex;
+    margin: 0.5rem;
+    margin-top: 1rem;
+    align-items: center;
+    background-color: #ecdd009a;
+}
+
+.btn{
+    color:black ;
+    background-color: #CC9865;
+}

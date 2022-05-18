@@ -1,0 +1,108 @@
+<app-navbar></app-navbar>
+<meta *ngIf="!token" http-equiv="refresh" content="0;url='login'" />
+<body class="text-center" >
+  <form class="form-signin" #userUpdate="ngForm" (ngSubmit)="onSubmit()">
+    <h1>MI PERFIL</h1>
+    <img class="radio" *ngIf="user.image && user.image != 'null'" src="{{uri +'getImage/'+user.image}}" alt="" width="250" height="250">
+    <h1 class="h3 mb-3 font-weight-normal">Actualiza tu cuenta aquí</h1>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="form-label" for="inputName">
+          Nombre
+        </label>
+        <input [(ngModel)]="user.name" name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="Nombre" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-label" for="inputLastname">Apellido</label>
+        <input [(ngModel)]="user.lastname" name="lastname" class="form-control" type="text" id="inputLastname" placeholder="Apellido">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="form-label" for="inputUsername">Nombre de Usuario</label>
+        <input [(ngModel)]="user.username" name="username" #username="ngModel" class="form-control" type="text" id="inputUsername" placeholder="Nombre de Usuario" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-label" for="inputLastname">Correo</label>
+        <input [(ngModel)]="user.correo" name="correo" class="form-control" type="text" id="inputCorreo" placeholder="Correo">
+      </div> 
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="form-label" for="inputUsername">Número de teléfono</label>
+        <input [(ngModel)]="user.phone" name="phone" #phone="ngModel" class="form-control" type="text" id="inputPhone" placeholder="Número de teléfono" required>
+      </div>
+      <div class="form-group col-md-6" *ngIf="user.role == 'ROLE_ADMIN'">
+        <label class="form-label" for="inputLastname">Rol</label>
+        <input name="role" class="form-control" type="text" placeholder="ADMINISTRADOR" disabled="true">
+      </div>
+      <div class="form-group col-md-6" *ngIf="user.role == 'ROLE_STUDENT'">
+        <label class="form-label" for="inputLastname">Rol</label>
+        <input name="role" class="form-control" type="text" placeholder="ESTUDIANTE" disabled="true">
+      </div>
+      <div class="form-group col-md-6" *ngIf="user.role == 'ROLE_TEACHER'">
+        <label class="form-label" for="inputLastname">Rol</label>
+        <input name="role" class="form-control" type="text" placeholder="TUTOR" disabled="true">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success col-lg-3 mx-2">
+      Actualizar cuenta
+    </button>
+    <button type="button" class="btn btn-danger col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Eliminar cuenta
+    </button>
+    <button type="button" class="btn btn-info col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModalDos">
+      Subir imagen
+    </button>
+  </form>
+</body>
+  <!-- MODAL DELETE-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-white d-flex justify-content-center">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Estás a un paso de eliminar tu cuenta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span class="mt-5 mb-3 text-muted">¿Seguro de eliminar cuenta?</span>
+            <h3>¡No puedes volver luego de eliminarla!</h3>
+            <span>Ingresa tu contraseña para continuar</span>
+            <form #formRemove="ngForm">
+                <label for="passwordRemoved"></label>
+                <input [(ngModel)]="possiblePass" type="password" id="passwordRemoved" name="passworRemoved" required>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" data-dismiss="modal" class="btn btn-danger" [disabled]="!formRemove.form.valid" (click)="deleteAccount()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<!--------MODAL UPLOAD IMAGE------------>
+
+<div class="modal fade" id="exampleModalDos" tabindex="-1" aria-labelledby="exampleModalDosLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-white d-flex justify-content-center">
+        <h5 class="modal-title" id="exampleModalDos">
+          ¡La imagen que quieras de perfil!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>Sube tu imagen</h3>
+        <form #formImage="ngForm">
+          <label for="imageInput"></label>
+          <input type="file" name="image" id="imageInput" (change)="fileChange($event)">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-outline-success   ripple-surface" [disabled]="!formImage.form.valid" (click)="uploadImage()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

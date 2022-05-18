@@ -1,0 +1,29 @@
+body
+{
+    font-family: "Montserrat";
+    color: rgb(221, 176, 123);
+}
+.card
+{
+    color: black;
+    background-color: white;
+    border: 0px;
+}
+.btn
+{
+    color: black;
+    background-color: rgb(221, 176, 123);
+    border: 1px black solid;
+}
+.text-cc
+{
+    height: 100px;
+    background-color: black;
+    color: white;
+    position: center bottom;
+}
+
+#icon
+{
+    margin-bottom: 35px;
+}

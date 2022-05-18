@@ -1,0 +1,41 @@
+body{
+    margin-top: -5%;
+    padding: 10%;
+    height: 100%;
+    text-align: center;
+    justify-content:center;
+    font-family:"Montserrat" sans-serif;
+
+}
+
+#subBody{
+    background-color: white;
+    padding: 10%;
+    border-radius: 15px;
+}
+
+.form-signin{
+    width: 100%;
+    max-width: 640px;
+    padding: 15px;
+    margin: auto;
+}
+
+
+.form-label{
+    position:center;
+    color: black;
+}
+
+.form-check-label{
+    position:center;
+    color:black;
+}
+
+.form-control{
+    border-color: black;
+}
+
+.radio{
+    border-radius: 50%;
+}

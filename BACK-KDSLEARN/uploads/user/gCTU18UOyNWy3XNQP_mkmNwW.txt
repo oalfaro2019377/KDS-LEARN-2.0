@@ -1,0 +1,33 @@
+Class.find({$and: [{_id: idClass},{comments._id: idComment}]
+Class.find({_id: idClass}, {comments[i].image: nameImage}, new:true...
+
+-------------------------------------
+idComent
+Class.findById(idClass, (class, error)=>{
+	if(err){
+		err
+	}else{
+		id,
+		name,
+		description,
+		comments: []
+		let comments = class.comments;
+
+		/*comments.find(_id: idComent, (comment, err)=>{
+			if(err){
+			}else (comment){
+				let indice = comment.index
+			}
+		})*/
+
+		var idsComments = [];
+		var indice;
+		for(i=0, i < comments.length, i++){
+			idsComments.push(i._id);
+			var indice = comments.index;
+		}
+		idsComments.find(_id: idComent)
+
+		Class.findByIdAndUpdate({})
+	}
+}

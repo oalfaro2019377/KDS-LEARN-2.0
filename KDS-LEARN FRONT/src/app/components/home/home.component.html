@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+<body>
+  <h3 class="stroke" *ngIf="token!=null">¡Bienvenido de nuevo {{user.username}}!</h3>
+  <br>
+  <h1 class="stroke">KDS Learn</h1>
+  <h3 *ngIf="token==null" class="stroke">Inicia sesión o registrate para ver las funciones de KDS Learn</h3>
+    <main class="mt-5">
+        <div  class="row" class="container row justify-content-center align-items-center">
+            <!--my courses-->
+        <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3" >
+            <div class="card">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="../../../assets/img/course.png" width="100rem" height="100rem" class="img-fluid" />
+              </div>
+              <div class="card-body row justify-content-center align-items-center">
+                <h5 class="card-title">MIS CURSOS</h5>
+                <p class="card-text">
+                  ¡Mira todos tus cursos!
+                </p>
+                <a href="/listCoursesStudents" class="btn">¡Vamos!</a>
+              </div>
+            </div>
+          </div>
+          <!--assing to course-->
+          <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3 ">
+            <div class="card">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="../../../assets/img/open-book.png" width="100rem" height="100rem" class="img-fluid" />
+              </div>
+              <div class="card-body row justify-content-center align-items-center">
+                <h5 class="card-title">NUEVOS CURSOS</h5>
+                <p class="card-text">
+                  ¡Nuevos cursos!
+                </p>
+                <a href="/allCourses" class="btn" style="margin-top: 29px;">¡Vamos!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--TEACHER-->
+        <div *ngIf="role == 'ROLE_TEACHER'" class="row" class="container row justify-content-center align-items-center">
+          <div id="trans" class="col-lg-8 col-md-3 ">
+            <div class="card">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="../../../assets/img/ebook.png" width="100rem" height="100rem" class="img-fluid" />
+              </div>
+              <div class="card-body row justify-content-center align-items-center">
+                <h5 class="card-title">MIS CURSOS</h5>
+                <p class="card-text">
+                  lista los cursos que has creado,
+                  puedes administrar cada uno de ellos.
+                </p>
+                <a href="/listCoursesTeachers" class="btn">¡Vamos!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--ADMIN-->
+        <div *ngIf="role == 'ROLE_ADMIN'" class="row" class="container row justify-content-center align-items-center">
+          <!--card List-users-->
+        <div id="trans" class="col-lg-4 col-md-3" >
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="../../../assets/img/teacher (1).png" width="100rem" height="100rem" class="img-fluid" />
+            </div>
+            <div class="card-body row justify-content-center align-items-center">
+              <h5 class="card-title">USUARIOS</h5>
+              <p class="card-text">
+                ¡Lista los usuarios de la página!
+              </p>
+              <a href="/listUsersMenu" class="btn">¡Vamos!</a>
+            </div>
+          </div>
+        </div>
+        <!--card List-teachers-->
+        <div id="trans" class="col-lg-4 col-md-3" >
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="../../../assets/img/teacher.png" width="100rem" height="100rem" class="img-fluid" />
+            </div>
+            <div class="card-body row justify-content-center align-items-center">
+              <h5 class="card-title">CURSOS</h5>
+              <p class="card-text">
+                ¡Lista los cursos de la página!
+              </p>
+              <a href="allCourses" class="btn">¡Vamos!</a>
+            </div>
+          </div>
+        </div>
+        </div>
+    </main>
+</body>
+<!-- Copyright -->
+<footer>
+  <div class="p-3" style="background-color: black; color: white;">
+    © 2022 Copyright:
+    <a>KDS LEARN</a>
+    <br>
+  </div>  
+</footer>
+<!-- Copyright -->

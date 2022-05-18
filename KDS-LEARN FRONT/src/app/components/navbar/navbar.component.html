@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #7B001E;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+      <img src="https://unis.edu.gt/wp-content/uploads/2021/08/logo.svg" alt="">
+    </a>
+      <!--btn responsive-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" >Inicio</a>
+          </li>
+          <li class="nav-item" *ngIf="token == null"> 
+            <a class="nav-link" routerLink="/login">Iniciar sesión</a> 
+            </li>
+  
+            </ul> 
+            <ul class="navbar-nav ml-auto" *ngIf="token != null">
+              <li class="nav-text">
+                <a class="nav-link" (click)="logOut()" style="cursor: pointer;">Cerrar sesión</a>
+              </li>
+              <li class="nav-text">
+                <a class="nav-link" routerLink="/user" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_STUDENT' || user.role == 'ROLE_TEACHER'">{{user.username}}</a>
+              </li>
+              <li>
+                <img class="radio" *ngIf="user.image" id="imgUser" src="{{uri +'getImage/'+user.image}}" alt="user image">
+              </li>
+            </ul>
+      </div>
+    </div>
+  </nav>

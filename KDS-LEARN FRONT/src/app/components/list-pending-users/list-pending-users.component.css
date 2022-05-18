@@ -1,0 +1,96 @@
+body{
+    font-family: 'Montserrat';
+    margin-top: -10%;
+    padding: 10%;
+    height: 100%;
+    text-align: center;
+    justify-content:center;
+}  
+
+#cards{
+    border-radius: 50%;
+}
+
+.card-title{
+    margin-bottom: -1px;
+}
+
+.card-text{
+    margin-top: 10px;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+.myWidth{
+    width: 15rem;
+    display: inline-block;
+    margin: 0.5rem;
+    margin-top: 2rem;
+    background-color: #f4f4f4;
+    transition: all 0.5s ease;
+}
+
+.myWidth:hover{
+    transition: all 0.5s ease;
+    transform: scale(0.9);
+}
+
+#botonesCrud{
+    display: inline-block;
+    margin: 2px;
+}
+
+.botones{
+    margin-left: 35px;
+}
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: 5%;
+    height: 60px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.search_input{
+    color: rgb(3, 3, 3);
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:rgb(123,0,30);
+    transition: width 0.4s linear;
+    border: 5px;
+    border-color: black;
+}
+
+.searchbar:hover > .search_icon{
+    color: rgb(123,0,30);
+    border: 5px;
+    border-color: black;
+}
+
+.search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    color: #7B001E;
+    text-decoration:none;
+}

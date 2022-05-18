@@ -1,0 +1,143 @@
+body {
+    font-family: 'Montserrat';
+    margin-top: -10%;
+    padding: 10%;
+    height: 100%;
+    text-align: center;
+    justify-content:center;
+}
+
+h1{
+    font-family: 'Montserrat';
+    font-size: 4rem;
+   
+}
+
+.btn{
+    color: white;
+    background-color: #CC9865;
+    border: black 1px solid;
+    justify-content: center;
+}
+
+h2{
+    font-family: 'Montserrat';
+    font-size: 4rem; 
+    background-color: white;
+    border-radius: 15px;
+}
+
+h3
+{
+    font-family: 'Montserrat';
+    font-size: 2rem;  
+}
+
+.card-body{
+   
+    border-radius: 15px;
+    border-color: rgb(0, 0, 0);
+    border: 3px solid;
+    justify-content:center;
+    background-color: white;
+}
+
+  .card-title{
+    color: black;
+}
+
+.row{
+    border-color: white;
+    margin-top: 4%;
+    background-color: white;
+    width: 900px;
+}
+.texto
+{
+    font-family: 'Montserrat';
+    color: black;
+}
+
+.bg-image{
+    width: 100px;;
+    margin: auto;
+}
+
+.row .texto{
+    margin-top: 10%;
+   font-size: 140%;
+}
+
+
+  img{
+    transition: all 0.5s ease;
+  }
+
+  img:hover{ transform: scale(0.9);}
+
+  .myWidth{
+    margin-top: 1rem;
+    align-items: center;
+    background-color: white;
+    border-color: white;
+    justify-content:center;
+}
+
+.centrar{
+    align-self: center;
+}
+
+.container{
+    font-family: 'Montserrat';
+    margin: 0.5rem;
+    margin-top: 1rem;
+    align-items: center;
+    background-color: white;
+    justify-content:center;
+    border-color: white;
+    
+}
+
+
+.titulos{
+    font-family: 'Montserrat';
+    align-items:center;
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px white;
+    border: white 3px solid;
+   padding: 20px;
+   border-radius: 20px;
+   
+   }
+
+   #botonesCrud{
+    display: inline-block;
+    margin-left: 1rem;
+}
+a
+{
+    font-family: 'Montserrat';
+    font-size: 1.25rem;
+  background-color:rgb(221,176,123);
+}   
+    
+.modal-header
+{
+    background-color: rgb(123,0,30);
+}
+.modal-footer
+{
+    background-color:  rgb(123,0,30);
+}
+.card
+{
+    
+    border: white 3px solid;
+}
+.col
+{
+    background-color: white;
+    border-color: black;
+    border: 3px solid;
+    border-radius: 15px;
+}

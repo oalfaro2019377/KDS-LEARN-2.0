@@ -1,0 +1,17 @@
+.navbar{
+    font-family:"Montserrat" sans-serif;
+    font-size: x-large;
+}
+
+#imgUser{
+    width:50px;
+    height: 50px;
+}
+
+.radio{
+    border-radius: 70%;
+}
+
+.nav-link{
+    color: white;
+}

@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+  <body>
+    <h1 class="text-center h1">MIS CURSOS DISPONIBLES</h1>
+    <form class="form-inline justify-content-center">
+      <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+          <div class="searchbar">
+            <input  [(ngModel)]="search" class="search_input" type="search" name="searchCourse"  placeholder="Buscar...">
+            <a href="/listCourses" class="search_icon"><i class="fas fa-search"></i></a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!--Cards-->
+    <form #login="ngForm" (ngSubmit)="onSubmit()" id="cards" class="row" class="container row justify-content-center align-items-center">
+        <div class="card myWidth" *ngFor="let class of classes | search:search">
+          <img src="../../../assets/img/notebook.png" width="75rem" height="75rem" alt=".">
+          <div  class="card-body">
+            <h5 class="card-title">{{class.name}}</h5>
+            <h6 class="card-title">{{class.description}}</h6>
+            <div>
+              <button class="btn" type="submit" (click)='getClass(class._id)' type="submit">Ver Clase</button>                       
+            </div>
+            <br>
+            <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Cancelar inscripción
+            </button>   
+          </div>
+        </div> 
+    </form>
+  </body>
+
+<!-- MODAL DELETE-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-white d-flex justify-content-center">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Estás a un paso de eliminar tu inscripción a esta clase</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span class="mt-5 mb-3 text-muted">¿Estás seguro de eliminar tu inscripción?</span>
+              <h3>¡No puedes volver luego de eliminarla!</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="deleteInscription()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>        
+        
+        
+
+

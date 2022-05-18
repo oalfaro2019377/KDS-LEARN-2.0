@@ -1,0 +1,121 @@
+<app-navbar></app-navbar>
+<meta *ngIf="role != 'ROLE_ADMIN'" http-equiv="refresh" content="2;url='home'" />
+<body>
+  <h1 class="text-center h1">USUARIOS</h1>
+  <form class="form-inline justify-content-center">
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input  [(ngModel)]="search" class="search_input" type="search" name="search"  placeholder="Buscar...">
+          <a href="/listUsers" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div id="cards"class="container">
+    <div class="card myWidth" *ngFor="let user of users | search:search">
+      <div *ngIf="user.image == null">
+        <img src="../../../assets/img/grupo.png" width="100rem" height="100rem" class="img-responsive" alt=".">
+      </div>
+      <div *ngIf="user.image != null">
+        <img src="{{uri +'getImage/'+user.image}}" width="100rem" height="100rem" class="img-responsive" alt=".">
+      </div>
+      <div class="card-body" style="text-align: left;">
+        <h5 class="card-title">Nombre: {{user.name}}</h5>
+        <p class="card-text">Usuario: {{user.username}}</p>
+        <div class="botones">
+          <button *ngIf="user.role != 'ROLE_ADMIN'" id="botonesCrud" (click)="getUser4(user._id)" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            ⚠
+          </button>
+          <button *ngIf="user.role == 'ROLE_ADMIN'" disabled="true" id="botonesCrud" (click)="getUser4(user._id)" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            ⚠
+          </button>
+          <button id="botonesCrud" (click)="getUser4(user._id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+            □
+          </button>
+          <button  id="botonesCrud"(click)='getUser4(user._id)' type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            X
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!--MODALS-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white d-flex justify-content-center">
+        <h5 class="modal-title" id="exampleModalLabel">
+          ¡Estás a punto de eliminar esta cuenta!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span class="mt-5 mb-3 text-muted">¿Estás seguro de eliminar esta cuenta?</span>
+            <h3>¡No puedes volver luego de eliminarla!</h3>
+            <span></span>
+            <form #formRemove="ngForm">
+                <label for="passwordRemoved"></label>
+              
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button"  data-bs-dismiss="modal" class="btn btn-danger" (click)="deleteUserAdmin()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header bg-warning text-white d-flex justify-content-center">
+              <h5 class="modal-title" id="exampleModalLabel">
+                  ¡Estás a punto de quitarle el acceso a esta cuenta!
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              </button>
+          </div>
+          <div class="modal-body">
+              <h3>¡Esta cuenta podrá acceder a la plataforma!</h3>
+              <h5>Podrás darle acceso nuevamente en la vista de usuarios pendientes</h5>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cerrar
+              </button>
+              <button type="button"  data-bs-dismiss="modal" class="btn btn-warning" (click)="removeAccess()">
+                  Aceptar
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content" *ngFor="let user of users">
+          <div class="modal-header bg-success text-white d-flex justify-content-center">
+              <h5 class="modal-title" id="exampleModalLabel">
+                  ¡Información esta cuenta!
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              </button>
+          </div>
+          <div class="modal-body">
+              <h3>Nombre: {{user.name}}</h3>
+              <h3>Apellido: {{user.lastname}}</h3>
+              <h3>Nombre de Usuario: {{user.username}}</h3>
+              <h3>correo: {{user.correo}}</h3>
+              <h3>Teléfono: {{user.phone}}</h3>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cerrar
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
