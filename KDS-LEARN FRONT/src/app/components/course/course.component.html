@@ -7,15 +7,17 @@
         <div class="col">
           <h1 class="stroke" *ngIf="course!=null">{{course.name}}</h1>
         </div>
+	<br/>
         <youtube-player videoId="{{course.video.substr(-11)}}" suggestedQuality="highres"
-        [height]="250" 
-        [width]="500">
+        [height]="450" 
+        [width]="800">
         </youtube-player>
       </div>
     </div>
   </div>
   <!--CARD-->
   <h1 class="stroke" *ngIf="user.role=='ROLE_TEACHER' && course.comments==''">Regresa a la página anterior para crear una publicación nueva.</h1>
+  <br/>
   <h1 class="stroke" *ngIf="course.comments==''">Aún no hay publicaciones en este curso</h1>
   <div class="container text-center mt-5">
     <button *ngIf="user.role=='ROLE_STUDENT'" type="button" routerLink="/listCoursesStudents"data-bs-dismiss="modal" class="btn ">

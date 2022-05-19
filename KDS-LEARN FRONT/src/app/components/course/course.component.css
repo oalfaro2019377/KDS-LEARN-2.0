@@ -140,4 +140,10 @@ a
     border-color: black;
     border: 3px solid;
     border-radius: 15px;
+    }
+
+.stroke
+{
+     font-family: 'Montserrat';
 }
+
