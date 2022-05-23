@@ -4,19 +4,18 @@
   <br>
   <h1 class="stroke">KDS Learn</h1>
   <h3 *ngIf="token==null" class="stroke">Inicia sesión o registrate para ver las funciones de KDS Learn</h3>
-    <main class="mt-5">
-        <div  class="row" class="container row justify-content-center align-items-center">
+    <main >
             <!--my courses-->
         <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3" >
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="../../../assets/img/course.png" width="100rem" height="100rem" class="img-fluid" />
               </div>
               <div class="card-body row justify-content-center align-items-center">
                 <h5 class="card-title">MIS CURSOS</h5>
                 <p class="card-text">
                   ¡Mira todos tus cursos!
                 </p>
+		<img src="../../../assets/img/course.png" width="100rem" height="100rem" class="img-fluid" />
                 <a href="/listCoursesStudents" class="btn">¡Vamos!</a>
               </div>
             </div>
@@ -25,18 +24,18 @@
           <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3 ">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="../../../assets/img/open-book.png" width="100rem" height="100rem" class="img-fluid" />
               </div>
               <div class="card-body row justify-content-center align-items-center">
                 <h5 class="card-title">NUEVOS CURSOS</h5>
                 <p class="card-text">
                   ¡Nuevos cursos!
                 </p>
+		 <img src="../../../assets/img/open-book.png" width="100rem" height="100rem" class="img-fluid" />
+
                 <a href="/allCourses" class="btn" style="margin-top: 29px;">¡Vamos!</a>
               </div>
             </div>
           </div>
-        </div>
         <!--TEACHER-->
         <div *ngIf="role == 'ROLE_TEACHER'" class="row" class="container row justify-content-center align-items-center">
           <div id="trans" class="col-lg-8 col-md-3 ">

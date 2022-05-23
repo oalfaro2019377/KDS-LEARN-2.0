@@ -56,8 +56,9 @@ h1{
 }
 
 .btn{
-    color: white;
+    color: black;
     background-color: #CC9865;
+    border: 1px solid black;
 }
 
 .btn-danger{
@@ -71,6 +72,7 @@ h1{
     background-color: #fffefe;
     border-radius: 30px;
     padding: 10px;
+    border: 1px solid black;
 }
 
 .search_input{
@@ -92,7 +94,7 @@ h1{
 
 .searchbar:hover > .search_icon{
     background: white;
-    color: #ff0d9a;
+    color: #7b001e;
 }
 
 .search_icon{
@@ -103,6 +105,15 @@ h1{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    color:rgb(219, 7, 95);
+    color:#7b001e;
     text-decoration:none;
 }
+.modal-header 
+{
+	background-color:#7b001e;
+}
+.modal-footer
+{
+	background-color:#7b001e;
+}
+

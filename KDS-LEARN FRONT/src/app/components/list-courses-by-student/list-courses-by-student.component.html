@@ -22,7 +22,7 @@
               <button class="btn" type="submit" (click)='getClass(class._id)' type="submit">Ver Clase</button>                       
             </div>
             <br>
-            <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button style="background-color:#8e8c85; border: 1px solid black;"   type="button" (click)='getClass(class._id)' class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Cancelar inscripción
             </button>   
           </div>
@@ -36,7 +36,7 @@
       <div class="modal-content">
         <div class="modal-header text-white d-flex justify-content-center">
           <h5 class="modal-title" id="exampleModalLabel">
-            Estás a un paso de eliminar tu inscripción a esta clase</h5>
+            Cancelar inscripción a esta clase</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -45,7 +45,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="deleteInscription()">Eliminar</button>
+          <button style="background-color:#8e8c85; border: 1px solid black; color:black" type="button" data-dismiss="modal" class="btn" (click)="deleteInscription()">Eliminar</button>
+
         </div>
       </div>
     </div>
