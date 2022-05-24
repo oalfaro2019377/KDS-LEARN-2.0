@@ -38,6 +38,7 @@ h1{
 .card-title{
     color: #7B001E;
     font-weight: bold;
+    justify-content:center;
 }
 
 .texto{
@@ -63,7 +64,6 @@ h1
 }
 h3 
 {
-	margin-right:70px
-	
-	
+    margin-right:70px	
 }
+
