@@ -1,27 +1,23 @@
-<app-navbar></app-navbar>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
 <section style="background-color: white;">
-    <div class="container h-100">
+    <div>
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
           <div class="card text-black" style="border-radius: 15px;">
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                  
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrarse como Estudiante</p>
-  
                   <form class="mx-1 mx-md-4" class="form-signin" #register="ngForm" (ngSubmit)="onSubmit(register)">
                     <div class="alert alert-danger" role="alert" *ngIf="!userSaved && message">
                         {{message}}
-                      </div>
-                      <div class="alert alert-success" role="alert" *ngIf="userSaved">
-                        {{message}} Logeate con: {{userSaved}}
-                      </div>
-
+                    </div>
+                    <div class="alert alert-success" role="alert" *ngIf="userSaved">
+                      {{message}} Logeate con: {{userSaved}}
+                    </div>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i id="icon" class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -32,7 +28,6 @@
                         <label class="form-label" for="form3Example1c">Ingresa tu nombre</label>
                       </div>
                     </div>
-  
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i id="icon" class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -43,7 +38,6 @@
                         <label class="form-label" for="form3Example4c">Ingresa tu apellido</label>
                       </div>
                     </div>
-
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i id="icon" class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -54,7 +48,6 @@
                         <label class="form-label" for="form3Example3c">Ingresa tu correo</label>
                       </div>
                     </div>
-
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i id="icon" class="fas fa-phone fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -65,7 +58,6 @@
                         <label class="form-label" for="form3Example3c">Ingresa tu número de teléfono</label>
                       </div>
                     </div>
-
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i id="icon" class="fas fa-user-tag fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -76,7 +68,6 @@
                         <label class="form-label" for="form3Example3c">Ingresa tu nombre de usuario</label>
                       </div>
                     </div>
-  
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i id="icon" class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -87,13 +78,11 @@
                         <label class="form-label" for="form3Example4cd">Ingresa tu contraseña</label>
                       </div>
                     </div>
-  
                     <div class="form-check d-flex justify-content-center mb-5">
                       <p>Al registrarte aceptas los <span style="cursor: pointer; color: blue;" class="form-check-label" for="form2Example3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Términos y condiciones</span>
                       </p>
                     </div>
-  
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button type="submit" class="btn btn-primary"[disabled]="!register.form.valid">Registrarse como estudiante</button>
                     </div>
@@ -110,6 +99,7 @@
     </div>
   </section>
 </body>
+<app-navbar></app-navbar>
 <footer>
   <div class="text-cc p-3" >
     © 2022 Copyright:
@@ -121,12 +111,28 @@
 	<div class="modal-dialog">
 	  <div class="modal-content text-center">
 		<div class="modal-header d-flex justify-content-center">
-		  <h5 class="modal-title" id="exampleModalLabel"></h5>
+		  <h2 class="modal-title" id="exampleModalLabel">Estudiante</h2>
 		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-
-		  <h1>¡Registrate Ahora!</h1>
+      <h5>
+        Al aceptar los términos y condiciones de uso usted: 
+        Se compromete ser un miembro respetuoso de la comunidad y dejar sus comentarios, sugerencias y
+        opiniones con respeto hacia todos miembros de esta comunidad educativa sin usar ninguna clase de
+        vocabularios misógeno, racista, homofóbico o antisemita.
+        Acepta dar acceso a los administradores de KDS Learn así como a su institución educativa a sus a los
+        datos recogidos incluyendo nombre, apellido, correo electrónico, número de teléfono y usuario y
+        contraseña del sitio.
+        Da el consentimiento para que el/los tutores tengan acceso a los datos mencionados anteriormente
+        cuando se realice la inscripción correspondiente a cada uno de sus cursos.
+        Se compromete ayudar a mejorar la experiencia educativa enviando feedback y comentarios que
+        ayuden a mejorar la experiencia de usuario en la plataforma así como presentar sugerencias para que
+        esta mejore continuamente.
+        Da el consentimiento para que los administradores de KDS Learn gestionen su cuenta mediante
+        acciones como: otorgar acceso a la plataforma, negar su acceso a la plataforma o en dado caso eliminar
+        permanentemente su cuenta si hubiera alguna violación de los términos y condiciones de uso descritas
+        anteriormente. 
+      </h5>
 		</div>
 	  </div>
 	</div>

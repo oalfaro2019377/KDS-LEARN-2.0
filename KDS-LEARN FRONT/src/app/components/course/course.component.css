@@ -1,23 +1,19 @@
 body {
     font-family: 'Montserrat';
-    margin-top: -10%;
     padding: 10%;
     height: 100%;
-    text-align: center;
-    justify-content:center;
+    padding-top: 7%;
 }
 
 h1{
     font-family: 'Montserrat';
     font-size: 4rem;
-   
 }
 
 .btn{
     color: white;
     background-color: #CC9865;
     border: black 1px solid;
-    justify-content: center;
 }
 
 h2{

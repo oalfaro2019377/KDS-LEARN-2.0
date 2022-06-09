@@ -1,10 +1,8 @@
 body {
     font-family: 'Montserrat';
-    margin-top: -10%;
     padding: 10%;
     height: 100%;
-    text-align: center;
-    justify-content:center;
+    padding-top: 7%;
 }
 
 h1{
@@ -12,19 +10,18 @@ h1{
     font-size: 4rem;
 }
 
-.card-body{
-    color: rgb(12, 12, 12);
-    margin: 7%;
-     
-    color: rgb(22, 22, 22);
-    margin: 2%;
-    border-radius: 20px;
-    border-color: rgb(0, 0, 0);
-    justify-content:center;
+#img{
+    margin-top: 1%;
+    width: 13%;
+    float: left;
 }
 
 .card-title{
     color: rgb(0, 0, 0);
+}
+
+.card-body{
+    float: left;
 }
 
 .row{
@@ -45,17 +42,19 @@ h1{
     transform: scale(0.9);
 }
 
+.btns{
+    float: right;
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
 .container{
     margin: 0.5rem;
     margin-top: 1rem;
     align-items: center;
     border-color: rgb(0, 0, 0);
-    justify-content:center;
 }
-.card-title
-{
-    font-size: 50px;
-}
+
 .modal-header 
 {
     background-color: rgb(123,0,30);

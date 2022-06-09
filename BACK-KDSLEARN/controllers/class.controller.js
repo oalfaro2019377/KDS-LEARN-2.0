@@ -3,6 +3,7 @@
 var User = require('../models/user.model');
 var Class = require('../models/class.model');
 var Comment = require('../models/comment.model');
+var Rating = require('../models/rating.model');
 var File = require('../models/file.model');
 var bcrypt = require('bcrypt-nodejs');
 var jwt = require('../services/jwt');
@@ -73,6 +74,7 @@ function updateClass(req, res){
     let userId = req.params.idU;
     let classId = req.params.idC;
     let update = req.body;
+
     if(userId != req.user.sub){
         return res.status(404).send({message: 'No tienes permiso para realizar esta acción'});
     }else{
@@ -111,6 +113,73 @@ function updateClass(req, res){
             return res.status(404).send({message: 'Por favor ingresa los datos mínimos para actualizar la materia'});
         }       
     }
+}
+
+//SET VOTE
+function setVote(req, res){
+    let rating = new Rating();
+    let classId = req.params.idC;
+    let userId = req.params.idU;
+    let params = req.body;
+
+    if(userId != req.params.idU){
+        res.status(403).send({message: 'No puede acceder a esta funcion'});
+    }else{
+        Class.findById(classId, (err, classFind)=>{
+            if(err){
+                return res.status(500).send({message: 'ERROR GENERAL', err});
+            }else if(classFind){
+                if(params.rating){
+                    let voters = 1;
+                    let rating = parseInt(params.rating);
+                    params.rating = parseInt(classFind.rating) + rating;
+                    params.voters = classFind.voters + voters;
+                    params.average = params.rating/params.voters;
+                    Class.findByIdAndUpdate(classId, params, {new:true}, (err, classRated)=>{
+                        if(err){
+                            return res.status(500).send({message: 'ERROR GENERAL', err});
+                        }else if(classRated){
+                            return res.send({message: 'Promedio guardado', classRated});
+                        }else{
+                            return res.status(404).send({message: 'No se envió tu voto'});
+                        }
+                    })
+                }else{
+                    return res.status(403).send({message: 'Por favor ingresa tu voto del 1 al 5'});
+                }
+            }else{
+                return res.status(404).send({message: 'No se encontro esta clase'})
+            }
+        })
+    }
+}
+
+//SET TOTAL RATING
+function setTotalRating(req, res){
+    let classId = req.params.idC;
+
+    Class.findById(classId, (err, classFind)=>{
+        if(err){
+            return res.status(500).send({message: 'ERROR GENERAL', err});
+        }else if(classFind){
+            let sum = 0;
+            for(let i = 0; i < classFind.rating.lenght; i++){
+                sum += classFind.rating[i];
+            }
+            Class.findByIdAndUpdate(classId, {totalRating: sum}, {new:true}, (err, totalRateUpdate)=>{
+                if(err){
+                    return res.status(500).send({message: 'ERROR GENERAL', err});
+                }else if(totalRateUpdate){
+                    return res.send({message: 'Suma de las votaciones: ', totalRating: totalRateUpdate.totalRating});
+                }else{
+                    return res.status(404).send({message: 'No se pudo actualizar'});
+                }
+            })
+        }else{
+            return res.status(404).send({message: 'No se encontro la clase'});
+        }
+    })
+
 }
 
 //DELETE
@@ -217,12 +286,14 @@ function listClassByS(req, res){
     })
 }
 
+
+
 //COMMENT
 //SAVE COMMENT
 function saveComment(req, res){
     var comment = new Comment();
     let userId = req.params.idU;
-    let commentId = req.params.idC;
+    let classId = req.params.idC;
     let params = req.body;
     if(userId !=req.user.sub){
         res.status(403).send({message: 'No puede acceder a esta funcion'})
@@ -240,7 +311,7 @@ function saveComment(req, res){
                     comment.link3 = params.link3;
                     comment.link4 = params.link4;
                     comment.link5 = params.link5;
-                    Class.findByIdAndUpdate(commentId, {$push: {comments: comment}}, {new: true}, (err, comentSaved)=>{
+                    Class.findByIdAndUpdate(classId, {$push: {comments: comment}}, {new: true}, (err, comentSaved)=>{
                         if(err){
                             res.status(500).send({message: 'ERROR GENERAL', err})
                         }else if(comentSaved){
@@ -488,6 +559,8 @@ function getFiles(req, res){
         getImageC,
         getClass,
         getFiles,
-        getVideo
+        getVideo,
+        setVote,
+        setTotalRating
     }
     

@@ -8,6 +8,9 @@ var classSchema = Schema({
     teacher: {type: Schema.ObjectId, ref: 'user'},
     student: [{type: Schema.ObjectId, ref: 'user'}],
     video: String,
+    rating: 0,
+    voters: 0,
+    average: Number,
     comments: [{
         title: String,
         comm: String,
@@ -20,4 +23,5 @@ var classSchema = Schema({
     files: [
           ]
 })
+
 module.exports = mongoose.model('class', classSchema);

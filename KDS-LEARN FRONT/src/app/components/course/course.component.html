@@ -1,20 +1,11 @@
-<app-navbar></app-navbar>
 <h3 *ngIf="token==null" class="stroke">Inicia sesión o registrate para ver las funciones de TUTOSEARCH ©</h3>
 <body>
-  <div class="container text-center mt-5">
-    <div class="card">
-      <div class="container mt-2">
-        <div class="col">
-          <h1 class="stroke" *ngIf="course!=null">{{course.name}}</h1>
-        </div>
+  <h1 class="text-center h1" *ngIf="course!=null">{{course.name}}</h1>
 	<br/>
-        <youtube-player videoId="{{course.video.substr(-11)}}" suggestedQuality="highres"
-        [height]="450" 
-        [width]="800">
-        </youtube-player>
-      </div>
-    </div>
-  </div>
+  <youtube-player class="text-center" videoId="{{course.video.substr(-11)}}" suggestedQuality="highres"
+  [height]="450" 
+  [width]="800">
+  </youtube-player>
   <!--CARD-->
   <h1 class="stroke" *ngIf="user.role=='ROLE_TEACHER' && course.comments==''">Regresa a la página anterior para crear una publicación nueva.</h1>
   <br/>
@@ -28,11 +19,10 @@
     </button>  
   </div>
   <div>
-    <div id="trans" class="container card-body d-grid gap-2 " *ngFor="let comment of comments">          
+    <div id="trans" class="" *ngFor="let comment of comments">          
       <div  class="card-body">
         <img src="assets\img\libro.png" width="200rem" height="80rem" class="img-responsive" alt=".">
         <h2 class="card-title">{{comment.title}}</h2>
-        
         <hr>
         <h3 class="card-title">{{comment.comm}}</h3>
         <hr>
@@ -41,7 +31,7 @@
         <a href={{comment.link2}} target="_blank" class="card-title" *ngIf="comment.link2!=''">→ {{comment.link2}}</a><br>
         <a href={{comment.link3}} target="_blank" class="card-title"  *ngIf="comment.link3!=''">→ {{comment.link3}}</a><br>
         <a href={{comment.link4}} target="_blank" class="card-title" *ngIf="comment.link4!=''">→{{comment.link4}}</a><br>
-        <a href={{comment.link1}} target="_blank" class="card-title" *ngIf="comment.link5!=''">→{{comment.link5}}</a>
+        <a href={{comment.link5}} target="_blank" class="card-title" *ngIf="comment.link5!=''">→{{comment.link5}}</a>
         <div *ngIf="user.role=='ROLE_TEACHER'">
           <img src="assets\img\rbin.png" (click)='getComment(comment._id)' width="50rem"  height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" alt="delete"> 
         </div>
@@ -67,5 +57,5 @@
     </div>
   </div>   
 </body>
-
+<app-navbar></app-navbar>
 <!--FINAL-->

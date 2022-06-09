@@ -40,6 +40,8 @@ api.get('/listClassByS/:idS', classController.listClassByS);
 api.get('/listClassByT/:idT', classController.listClassByT);
 api.get('/allClasses/:idU', mdAuth.ensureAuth, classController.allClasses);
 api.get('/getClass/:idC', classController.getClass);
+api.put('/setVote/:idU/:idC', mdAuth.ensureAuth, classController.setVote);
+api.put('/setTotalRating/:idC', classController.setTotalRating);
 
 //COMMENT
 api.put('/saveComment/:idU/:idC', mdAuth.ensureAuth, classController.saveComment);

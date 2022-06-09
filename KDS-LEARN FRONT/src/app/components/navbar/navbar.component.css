@@ -1,6 +1,9 @@
 .navbar{
     font-family:"Montserrat" sans-serif;
     font-size: x-large;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 #imgUser{

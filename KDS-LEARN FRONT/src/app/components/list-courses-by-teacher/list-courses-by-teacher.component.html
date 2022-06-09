@@ -1,27 +1,30 @@
+<body>    
+  <h1 class="text-center h1">CURSOS</h1>
+  <p class="text-center h1">¡Agrega más cursos!</p>  
+  <img src="../../../assets/img/add (1).png" id='x' width="100rem" height="100rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <!--Cards-->  
+  <div id="cards" class="row">
+    <div class="myWidth" *ngFor="let class of classes">
+      <img src="assets\img\libro.png" id="img" alt=".">  
+      <div  class="card-body">
+        <h4>Nombre del curso:</h4>
+        <h4 class="card-title">{{class.name}}</h4>
+        <h6>Descripción del curso:</h6>
+        <h6 class="card-title">{{class.description}}</h6>
+        <h6>Profesor(a):</h6>
+        <h6 class="card-title">{{class.teacher.name}} {{class.teacher.lastname}}</h6> 
+      </div> 
+      <form  class="form-signin" #get = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
+        <div class="btns">
+          <img src="../../../assets/img/file (1).png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
+          <img src="../../../assets/img/add-file.png"  (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
+          <img src="../../../assets/img/file.png" id='prueba' (click)='getClass(class._id) || funcion()' width="50rem" height="50rem" class="img-responsive" type="button"  alt="verCommentario" >
+        </div>
+        </form>
+    </div>
+  </div> 
+</body>
 <app-navbar></app-navbar>
-     <body>    
-        <h1>CURSOS</h1>
-        <p >¡Agrega más cursos!</p>  
-        <img src="../../../assets/img/add (1).png" id='x' width="100rem" height="100rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <!--Cards-->  
-        <div id="cards" class="row" class="container row justify-content-center align-items-center">
-          <div class="card myWidth" *ngFor="let class of classes">
-            <h1 class="stroke" *ngIf="class.name==null">Regresa a la página anterior para crear una publicación nueva.</h1>
-            <img src="assets\img\libro.png" width="150rem" height="80rem" alt=".">  
-            <div  class="card-body">
-              <h5 class="card-title">{{class.name}}</h5>
-              <h6 class="card-title">{{class.description}}</h6>
-            </div> 
-            <form  class="form-signin" #get = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
-              <div>
-                <img src="../../../assets/img/file (1).png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
-                <img src="../../../assets/img/add-file.png"  (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
-                <img src="../../../assets/img/file.png" id='prueba' (click)='getClass(class._id) || funcion()' width="50rem" height="50rem" class="img-responsive" type="button"  alt="verCommentario" >
-              </div>
-              </form>
-          </div>
-        </div> 
-    </body>
 <!--modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

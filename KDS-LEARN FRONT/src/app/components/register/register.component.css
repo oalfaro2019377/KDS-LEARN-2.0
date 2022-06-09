@@ -2,6 +2,7 @@ body
 {
     font-family: "Montserrat";
     color: rgb(221, 176, 123);
+    margin-top: 70px;
 }
 .card
 {
@@ -26,4 +27,12 @@ body
 #icon
 {
     margin-bottom: 35px;;
+}
+
+.modal-header{
+    background-color: #7B001E;
+}
+
+.modal-title{
+    color: white;
 }

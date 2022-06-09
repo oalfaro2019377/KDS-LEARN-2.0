@@ -1,47 +1,51 @@
+<body>
+  <h1 class="text-center h1">NUEVOS CURSOS DISPONIBLES</h1>
+  <form class="form-inline justify-content-center">
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input  [(ngModel)]="search" class="search_input" type="search" name="search"  placeholder="Search...">
+          <a href="/listUsers" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!--Cards-->
+  <div id="cards" class="row">
+    <div class="myWidth" *ngFor="let class of classes | search:search">
+      <img src="../../../assets/img/notebook.png" alt=".">
+      <div class="card-body">
+        <h4>Nombre del curso:</h4>
+        <h4 class="card-title">{{class.name}}</h4>
+        <h6>Descripción del curso:</h6>
+        <h6 class="card-title">{{class.description}}</h6>
+        <h6>Profesor(a):</h6>
+        <h6 class="card-title">{{class.teacher.name}} {{class.teacher.lastname}}</h6>  
+      </div>
+      <div *ngIf="user.role == 'ROLE_STUDENT'" class="btns">
+        <button class="btn" (click)='getClass(class._id)' data-bs-toggle="modal" data-bs-target="#exampleModal">Inscribirme</button>
+      </div>    
+    </div> 
+  </div>
+</body>
 <app-navbar></app-navbar>
-  <body>
-    <h1 class="text-center h1"> CURSOS DISPONIBLES</h1>
-    <form class="form-inline justify-content-center">
-      <div class="container h-100">
-        <div class="d-flex justify-content-center h-100">
-          <div class="searchbar">
-            <input  [(ngModel)]="search" class="search_input" type="search" name="search"  placeholder="Search...">
-            <a href="/listUsers" class="search_icon"><i class="fas fa-search"></i></a>
-          </div>
-        </div>
+<!--MODAL INSCRIPTION-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-black d-flex justify-content-center">
+        <h5 class="modal-title" id="exampleModalLabel">
+        Inscribirse al curso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>        
+      </div>     
+      <div class="modal-body">
+        <img src="../../../assets/img/tenor.gif" width="150rem" height="150rem" class="img-responsive" alt=".">
+        <br>
+        <h3 class="text-center h1">Acepta dar acceso al tutor a sus datos públicos</h3>     
+        <button type="button" (click)="inscriptionClass()" class="btn btn-outline-secondary" data-bs-dismiss="modal" >Inscribirme</button>
       </div>
-    </form>
-    <!--Cards-->
-    <div id="cards" class="container">
-      <div class="myWidth" *ngFor="let class of classes | search:search">
-        <div class="card-body">
-          <img src="../../../assets/img/notebook.png" width="75rem" height="75rem" alt=".">
-          <h5 class="card-title">{{class.name}}</h5>
-          <h6 class="card-title">{{class.description}}</h6>
-          <p class="card-title">Profesor(a): {{class.teacher.name}} {{class.teacher.lastname}}</p>
-          <div *ngIf="user.role == 'ROLE_STUDENT'" >
-            <a class="btn btn-secondary" (click)='getClass(class._id)' data-bs-toggle="modal" data-bs-target="#exampleModal">Inscribirme</a>
-          </div>  
-        </div>          
-      </div> 
+      <div class="modal-footer text-white">                  
+      </div>      
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header text-black d-flex justify-content-center">
-            <h5 class="modal-title" id="exampleModalLabel">
-            Inscribirse al curso</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>        
-          </div>     
-          <div class="modal-body">
-            <img src="../../../assets/img/tenor.gif" width="150rem" height="150rem" class="img-responsive" alt=".">
-          	<br>
-            <h3 class="text-center h1">Acepta dar acceso al tutor a sus datos públicos</h3>     
-            <button type="button" (click)="inscriptionClass()" class="btn btn-outline-secondary" data-bs-dismiss="modal" >Inscribirme</button>
-          </div>
-          <div class="modal-footer text-white">                  
-          </div>      
-        </div>
-      </div>
-    </div>
-  </body>
+  </div>
+</div>

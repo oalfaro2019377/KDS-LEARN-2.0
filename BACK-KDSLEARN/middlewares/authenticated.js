@@ -12,10 +12,10 @@ exports.ensureAuth = (req, res, next)=>{
         try{
                 var payload = jwt.decode(token, secretKey);
                 if(payload.exp <= moment().unix()){
-                    return res.status(401).send({message: 'El token esta expirado'});
+                    return res.status(401).send({message: 'El token esta expirado, por favor vuelve a iniciar sesión'});
                 }
         }catch(err){
-            return res.status(404).send({message: 'Token invalido'});
+            return res.status(404).send({message: 'Token invalido, por favor vuelve a iniciar sesión'});
         }
 
         req.user=payload;
@@ -35,7 +35,7 @@ exports.ensureAuthAdmin = (req, res, next)=>{
 exports.ensureAuthTeacher = (req, res, next)=>{
     var payload = req.user;
     if(payload.role !="ROLE_TEACHER"){
-        return res.status(404).send({message: 'no tienes permiso para acceder a esta ruta'})
+        return res.status(404).send({message: 'No tienes permiso para acceder a esta ruta'})
     }else{
         return next();
     }

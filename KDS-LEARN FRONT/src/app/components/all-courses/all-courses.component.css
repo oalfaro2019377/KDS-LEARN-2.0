@@ -1,7 +1,8 @@
 body {
     font-family: 'Montserrat';
-    margin-top: -10%;
     padding: 10%;
+    height: 100%;
+    padding-top: 7%;
 }
 
 h1{
@@ -9,20 +10,22 @@ h1{
     font-size: 4rem;
 }
 
+img{
+    margin-top: 1%;
+    width: 13%;
+    float: left;
+}
+
 .card-title{
     color: rgb(0, 0, 0);
 }
 
 .card-body{
-    text-align: center;
-}
-
-.texto
-{
-    color: rgb(14, 14, 13);
+    float: left;
 }
 
 .myWidth{
+    display: inline-block;
     margin: 0.5rem;
     margin-top: 2rem;
     background-color: #f4f4f4;
@@ -37,12 +40,25 @@ h1{
 .container{
     margin: 0.5rem;
     margin-top: 1rem;
+    align-items: center;
     border-color: rgb(0, 0, 0);
 }
 
-#botonesCrud{
-    display: inline-block;
-    margin-left: 1.5rem;
+.btn{
+    color: white;
+    background-color: #CC9865;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.btns{
+    float: right;
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
+.btn-danger{
+    background-color: red;
 }
 
 .searchbar{
@@ -103,11 +119,3 @@ h1{
 {
     background-color: rgb(123,0,30);
 }
-.btn
-{
-	color:#111313; 
-    background-color: #cc9865;
-    outline-color:#111315;
-    border: 1px solid black;
-}
-

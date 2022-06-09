@@ -12,7 +12,7 @@
       </div>
     </div>
   </form>
-  <div id="cards"class="container">
+  <div class="container">
     <div class="card myWidth" *ngFor="let user of users | search:search">
       <div *ngIf="user.image == null">
         <img src="../../../assets/img/grupo.png" width="100rem" height="100rem" class="img-responsive" alt=".">

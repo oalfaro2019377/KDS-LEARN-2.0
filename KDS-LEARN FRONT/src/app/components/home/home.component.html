@@ -1,97 +1,91 @@
-<app-navbar></app-navbar>
 <body>
   <h3 class="stroke" *ngIf="token!=null">¡Bienvenido de nuevo {{user.username}}!</h3>
   <br>
   <h1 class="stroke">KDS Learn</h1>
   <h3 *ngIf="token==null" class="stroke">Inicia sesión o registrate para ver las funciones de KDS Learn</h3>
-    <main>
-       <div  class="row" class="container row justify-content-center align-items-center">
-            <!--my courses-->
-  <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3" >
-            <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              </div>
-              <div class="card-body row justify-content-center align-items-center">
-                <h5 class="card-title">MIS CURSOS</h5>
-                <p class="card-text">
-                  ¡Mira todos tus cursos!
-                </p>
-		<img src="../../../assets/img/course.png" width="100rem" height="100rem" class="img-fluid" />
-                <a href="/listCoursesStudents" class="btn">¡Vamos!</a>
-              </div>
-            </div>
+  <div class="container h-100 d-flex justify-content-center">
+    <!--my courses-->
+    <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-4" >
+      <div class="card d-flex justify-content-center h-100">
+        <div class="card-body row">
+          <h5 class="card-title">MIS CURSOS</h5>
+          <p class="card-text">
+            ¡Mira todos tus cursos!
+          </p>
+          <img src="../../../assets/img/course.png" class="img-fluid" />
+          <br>
+          <a href="/listCoursesStudents" class="btn">¡Vamos!</a>
+        </div>
+      </div>
+    </div>
+    <br/><br/>
+      <!--assing to course-->
+    <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-4">
+      <div class="card d-flex justify-content-center h-100">
+        <div class="card-body row">
+          <h5 class="card-title">NUEVOS CURSOS</h5>
+          <p class="card-text">
+            ¡Descubre nuevos cursos!
+          </p>
+          <img src="../../../assets/img/open-book.png" class="img-fluid" />
+          <a href="/allCourses" class="btn">¡Vamos!</a>
+        </div>
+      </div>
+    </div>
+    <!--TEACHER-->
+    <div *ngIf="role == 'ROLE_TEACHER'" id="trans" class="col-lg-5">
+      <div >
+        <div class="card d-flex justify-content-center h-100">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="../../../assets/img/ebook.png" width="100rem" height="100rem" class="img-fluid" />
           </div>
-          <br/><br/>
-          <!--assing to course-->
-          <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3 ">
-            <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              </div>
-              <div class="card-body row justify-content-center align-items-center">
-                <h5 class="card-title">NUEVOS CURSOS</h5>
-                <p class="card-text">
-                  ¡Nuevos cursos!
-                </p>
-		 <img src="../../../assets/img/open-book.png" width="100rem" height="100rem" class="img-fluid" />
-
-                <a href="/allCourses" class="btn" style="margin-top: 29px;">¡Vamos!</a>
-              </div>
-             </div>
-            </div>
-          </div>
-        <!--TEACHER-->
-        <div *ngIf="role == 'ROLE_TEACHER'" class="row" class="container row justify-content-center align-items-center">
-          <div id="trans" class="col-lg-8 col-md-3 ">
-            <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="../../../assets/img/ebook.png" width="100rem" height="100rem" class="img-fluid" />
-              </div>
-              <div class="card-body row justify-content-center align-items-center">
-                <h5 class="card-title">MIS CURSOS</h5>
-                <p class="card-text">
-                  lista los cursos que has creado,
-                  puedes administrar cada uno de ellos.
-                </p>
-                <a href="/listCoursesTeachers" class="btn">¡Vamos!</a>
-              </div>
-            </div>
+          <div class="card-body row justify-content-center align-items-center">
+            <h5 class="card-title">MIS CURSOS</h5>
+            <p class="card-text">
+              Lista los cursos que has creado,
+              puedes administrar cada uno de ellos.
+            </p>
+            <a href="/listCoursesTeachers" class="btn">¡Vamos!</a>
           </div>
         </div>
-        <!--ADMIN-->
-        <div *ngIf="role == 'ROLE_ADMIN'" class="row" class="container row justify-content-center align-items-center">
-          <!--card List-users-->
-        <div id="trans" class="col-lg-4 col-md-3" >
-          <div class="card">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="../../../assets/img/teacher (1).png" width="100rem" height="100rem" class="img-fluid" />
-            </div>
-            <div class="card-body row justify-content-center align-items-center">
-              <h5 class="card-title">USUARIOS</h5>
-              <p class="card-text">
-                ¡Lista los usuarios de la página!
-              </p>
-              <a href="/listUsersMenu" class="btn">¡Vamos!</a>
-            </div>
+      </div>
+    </div>
+    <!--ADMIN-->
+    <div *ngIf="role == 'ROLE_ADMIN'" class="row" class="container row justify-content-center align-items-center">
+      <!--card List-users-->
+      <div id="trans" class="col-lg-4 col-md-3" >
+        <div class="card">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="../../../assets/img/teacher (1).png" width="100rem" height="100rem" class="img-fluid" />
+          </div>
+          <div class="card-body row justify-content-center align-items-center">
+            <h5 class="card-title">USUARIOS</h5>
+            <p class="card-text">
+              ¡Lista los usuarios de la página!
+            </p>
+            <a href="/listUsersMenu" class="btn">¡Vamos!</a>
           </div>
         </div>
-        <!--card List-teachers-->
-        <div id="trans" class="col-lg-4 col-md-3" >
-          <div class="card">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="../../../assets/img/teacher.png" width="100rem" height="100rem" class="img-fluid" />
-            </div>
-            <div class="card-body row justify-content-center align-items-center">
-              <h5 class="card-title">CURSOS</h5>
-              <p class="card-text">
-                ¡Lista los cursos de la página!
-              </p>
-              <a href="allCourses" class="btn">¡Vamos!</a>
-            </div>
+      </div>
+      <!--card List-teachers-->
+      <div id="trans" class="col-lg-4 col-md-3" >
+        <div class="card">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="../../../assets/img/teacher.png" width="100rem" height="100rem" class="img-fluid" />
+          </div>
+          <div class="card-body row justify-content-center align-items-center">
+            <h5 class="card-title">CURSOS</h5>
+            <p class="card-text">
+              ¡Lista los cursos de la página!
+            </p>
+            <a href="allCourses" class="btn">¡Vamos!</a>
           </div>
         </div>
-        </div>
-    </main>
+      </div>
+    </div>
+  </div>
 </body>
+<app-navbar></app-navbar>
 <!-- Copyright -->
 <footer>
   <div class="p-3" style="background-color: black; color: white;">
